@@ -1,0 +1,42 @@
+<div class="main top-main">
+  <div class="top-message">
+    <div id='app'>
+      <transition appear>
+        <div v-html="message"></div>
+      </transition>
+    </div>
+    <br>
+    <h3>EasyShare is to let you find free sharing items.</h3><br>
+    <p>
+      You can use what other users have not been using free of charge.<br>
+      Let's post what you can share!</p>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div id="top_slides">
+          <carousel-3d
+            :controls-visible="true"
+            :clickable="false"
+            :autoplay="true"
+            :autoplay-timeout="5000"
+            :display="3"
+            @after-slide-change="onAfterSlideChange" >
+            <slide v-for="(data, i) in slideData" :index="i">
+              <div class="slide__text">{{ data.text }}</div>
+              <%# <img class="top-img" :src="data.image" /> %>
+              <img :src="data.src" v-if="data.src">
+            </slide>
+          </carousel-3d>
+          </div>
+          Caution: This app is trial</br/>
+          Posted data will be deleted later</br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    run_app_vue()
+    top_slides()
+  </script>
+</div>
+

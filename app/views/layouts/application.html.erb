@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EasyShare</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 本番用 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-carousel-3d@0.2.0/dist/vue-carousel-3d.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .v-enter-active {
+            transition: opacity 3s;
+        }
+        .v-enter {
+            opacity: 0;
+        }
+        .v-enter-to {
+            opacity: 1;
+        }
+    </style>
+
+  </head>
+
+  <body>
+
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <button type="submit" class="btn btn-success"><%= link_to("EasyShare", "/posts/index") %></button>
+        <% else %>
+          <button type="submit" class="btn btn-success"><%= link_to("EasyShare", "/") %></button>
+        <% end %>
+      </div>
+      <ul class="header-menus">
+        <% if @current_user %>
+          <li>
+            <div class="btn btn-warning"><%= link_to(@current_user.name, "/users/#{@current_user.id}") %></div>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-primary"><%= link_to("Posts", "/posts/index") %></button>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-primary"><%= link_to("New Post", "/posts/new") %></button>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-primary"><%= link_to("Users", "/users/index") %></button>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-primary"><%= link_to("Logout", "/logout", {method: :post}) %></button>
+          </li>
+        <% else %>
+          <li>
+            <button type="submit" class="btn btn-success"><%= link_to("About EasyShare", "/about") %></button>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-primary"><%= link_to("Signup", "/signup") %></button>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-primary"><%= link_to("Login", "/login") %></button>
+          </li>
+          <li>
+            <button type="submit" class="btn btn-warning"><%= link_to("Guest Login", "/guest_login") %></button>
+          </li>
+        <% end %>
+      </ul>
+    </header>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">Post</h1>
+
+    <%= form_tag("/posts/create", {multipart: true}) do %>
+      <div class="form">
+        <div class="form-body">
+
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <br/>
+          <p>Content</p>
+          <div id="app">
+            <textarea name="content" v-model.trim="postText" maxlength="<%= @content_max_length %>" placeholder="140 characters max"><%= @post.content %></textarea>
+            <p><div align="right">{{ postText.length }}/<%= @content_max_length %></div></p>
+          </div>
+          </br>
+          <p>画像</p>
+          <input name="image" type="file">
+          <br/>
+          <p>Address (to post or meet)</p>
+          <input name="address" type="text" placeholder="50 characters max"><%= @post.address %></input>
+          <br><br>
+          <div class="post-menu">
+            <button type="submit" class='btn btn-primary' >Post</button>
+            <%# input type="submit" value="Post" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <!-- <%= javascript_include_tag 'posts_new.js' %> -->
+  <script>
+    postText()
+  </script>
+</div>

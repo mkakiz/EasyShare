@@ -1,0 +1,35 @@
+<div class="main posts-index">
+
+  <div class="container">
+    <div class="posts-search">
+      <%= form_tag('/posts/index', method: 'get') do %>
+        <%= label_tag(:content_key, 'Search Content:') %>
+        <%= text_field_tag(:content_key) %>
+        <button type="submit" class="btn btn-info">
+          <%= submit_tag('Search') %>
+        </button>
+        <button type="submit" class="btn btn-info">
+          <%= link_to 'Clear', '/posts/index' %>
+        </button>
+      <% end %>
+    </div>
+
+    <% @posts.each do |post| %>
+      <div class="posts-index-item">
+        <div class="post-left">
+          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
+          <%= link_to(post.content, "/posts/#{post.id}") %>
+          <br/><br/>
+          <div class="post-time">
+            <%= l post.created_at %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">Login</div>
+    <div class="form users-form">
+      <div class="form-body">
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
+
+        <%= form_tag("/login") do %>
+          <p>email address</p>
+          <input name="email" value="<%= @email %>">
+          <p>Password</p>
+          <input type="password" name="password" value="<%= @password %>">
+          <br><br>
+          <div class="login-menu">
+            <button type="submit" class='btn btn-primary' >Login</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

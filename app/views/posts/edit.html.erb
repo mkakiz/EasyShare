@@ -1,0 +1,25 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">Edit page</h1>
+    <%= form_tag("/posts/#{@post.id}/update") do %>
+      <div class="form">
+        <div class="form-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <div class="form-error">
+              <%= message %>
+            </div>
+          <% end %>
+          <br/>
+          <p>Content</p>
+          <textarea name="content"><%= @post.content %></textarea>
+          <br/>
+          <br/>
+          <p>Address (to post or meet)</p>
+          <input name="address" type="text" value="<%= @post.address %>">
+          <br/>
+          <button type="submit" class='btn btn-primary' >Submit</button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

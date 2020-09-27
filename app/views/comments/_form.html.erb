@@ -1,0 +1,25 @@
+<%= render 'shared/error_messages' %>
+
+<div class="p-comment__formBox">
+  <p class="p-comment__formTitle">Comment</p>
+  <%= form_for comment do |f| %>
+    <%= f.hidden_field :post_id %>
+    <div class="form-group">
+      <br />
+      <%= f.label :name, 'Name:  ' %>
+      <%= @current_user.name %>
+      <br />
+      <%# f.text_field :name, class: 'form-control' %>
+      <br/>
+      <%= f.label :comment, 'Comment' %>
+      <%= f.text_area :comment, class: 'form-control', rows: 4 %>
+      <br/>
+      <%= f.label :address, 'Address (to post or meet' %>
+      <%= f.text_area :address, class: 'form-control', rows: 1 %>
+      <br/>
+      <div class="submit-button">
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>

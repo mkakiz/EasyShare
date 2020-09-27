@@ -1,0 +1,54 @@
+<div class="main posts-show">
+  <div class="container">
+    <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
+      <p>
+        <%= @post.content %>
+      </p>
+      <div class="post-image">
+        <% if @post.post_image_name.nil? %>
+        <% else %>
+          <img src="<%= "/post_images/#{@post.post_image_name}" %>">
+        <% end %>
+      </div>
+      <% if @post.address.nil? %>
+      <% elsif @post.address == '' %>
+      <% else %>
+        <%= content_tag(:iframe, 'map', src:'https://www.google.com/maps/embed/v1/place?key=AIzaSyDvLBjd9JIGFAdyn4fmlh8EVLBuKB8Bh2k&q=' + @post.address, width: '100%', height: 400, frameborder: 0) %>
+      <% end %>
+      <br/>
+      <div class="post-time">
+        <%= l @post.created_at %>
+      </div>
+      <br/><br/>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn-unlike"></span>
+        <% end %>
+      <% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>
+          <span class="fa fa-heart like-btn"></span>
+        <% end %>
+      <% end %>
+      <%= @likes_count %>
+      <% if @post.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("Edit", "/posts/#{@post.id}/edit", class: 'btn btn-primary') %>
+          <%= link_to("Delete", "/posts/#{@post.id}/destroy", {method: "post", data: { confirm: 'Is it ok to be deleted?' }, class: 'btn btn-primary'}) %>
+        </div>
+      <% end %>
+    </div>
+    <% if @post.comments.any? %>
+      <div class="p-comment__list">
+        <div class="p-comment_listTitle">Comments</div>
+          <div class="p-comment__formBox">
+            <%= render @post.comments %>
+          </div>
+      </div>
+    <% end %>
+    <%= render partial: 'comments/form', locals: { comment: @comment } %>
+  </div>
+</div>

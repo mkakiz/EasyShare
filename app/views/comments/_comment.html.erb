@@ -1,0 +1,23 @@
+<div class="p-comment__item">
+  <p><%= simple_format(comment.comment) %></p>
+  <br/>
+  <% if comment.address.nil? %>
+  <% else %>
+    <% if comment.address == '' %>
+    <% else %>
+    <%= content_tag(:iframe, 'map', src:'https://www.google.com/maps/embed/v1/place?key=AIzaSyDvLBjd9JIGFAdyn4fmlh8EVLBuKB8Bh2k&q=' + comment.address, width: '100%', height: 400, frameborder: 0) %>
+    <% end %>
+  <% end %>
+  <br/>
+  <div class="p-comment__bottomLine">
+    <span>Commented by: <%= comment.user.name %></span>
+    <br/><br/>
+    <span><%= comment.created_at %></span>
+    <br/><br/>
+    <% if comment.user_id == @current_user.id %>
+      <div class="submit-button">
+        <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Is it ok to be deleted?' }, class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+  </div>
+</div>

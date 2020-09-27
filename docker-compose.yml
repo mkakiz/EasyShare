@@ -1,0 +1,29 @@
+version: '3'
+services:
+  web:
+    build: .
+    command: bundle exec rails s -p 3011 -b '0.0.0.0'
+
+    volumes:
+      - .:/app
+    ports:
+      - 3011:3011
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+      - db-volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8889:8089
+volumes:
+  db-volume:

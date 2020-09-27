@@ -1,0 +1,150 @@
+/* posts/index ================================ */
+$shadow-color: #c1ced7;
+
+.posts-search {
+  padding: 20px 30px;
+  background-color: rgb(253, 253, 253);
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 2px 6px $shadow-color;
+  .btn {
+    a:link, a:visited, a:hover, a:active {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 10px 10px;
+    }
+  }
+  .btn-info {
+    padding: 2px 10px;
+  }
+  input {
+    vertical-align: middle;
+  }
+}
+
+.posts-index-item {
+  padding: 20px 30px;
+  background-color: white;
+  overflow: hidden;
+  box-shadow: 0 2px 6px $shadow-color;
+}
+
+.post-user-name a {
+  font-weight: 600;
+  &:hover {
+    color: #3ecdc6;
+  }
+}
+
+.post-left {
+  float: left;
+  width: 10%;
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px $shadow-color;
+    object-fit: cover;
+  }
+}
+
+.post-right {
+  float: left;
+  width: 90%;
+  padding-left: 25px;
+  text-align: left;
+}
+
+/* posts/show ================================ */
+.posts-show form {
+  display: inline;
+}
+
+.posts-show-item {
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 2px 6px $shadow-color;
+  overflow: hidden;
+  img {
+    width: 60px;
+    height: 60px;
+    border-radius: 40%;
+    box-shadow: 0 2px 6px $shadow-color;
+    vertical-align: middle;
+    object-fit: cover;
+  }
+  &.post-user-name a {
+    vertical-align: middle;
+    font-size: 24px;
+    margin-left: 15px;
+  }
+  p {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  &.fa {
+    font-size: 16px;
+    margin-right: 3px;
+  }
+}
+
+.post-image {
+  img {
+    height: 200px;
+    width: auto;
+  }
+}
+
+.post-time {
+  color: #8899a6;
+  margin-bottom: 10px;
+  float: right;
+}
+
+.like-btn {
+  color: #8899a6;
+}
+
+.like-btn-unlike {
+  color: #ff2581;
+}
+
+.post-menus {
+  float: right;
+}
+
+.post-menus a, .post-menus input {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  &:hover {
+    color: white;
+    transform: translate(2px, 2px);
+  }
+}
+
+/* posts/new ================================ */
+.posts-new textarea {
+  font-size: 20px;
+  padding: 10px;
+  min-height: 140px;
+  border: 1px solid rgb(216, 218, 223);
+  resize: none;
+  &::-webkit-input-placeholder {
+    font-size: 20px;
+    opacity: 0.5;
+  }
+}
+
+.post-menu button {
+  float: right;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  &:hover {
+    color: white;
+    transform: translate(2px, 2px);
+  }
+}
