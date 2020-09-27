@@ -32,8 +32,8 @@ It's a loss to buy something used only temporary and disposed later.<br/>
 It will enrich everybody's lives by sharing. <br/>
 
 
-AWS service structure:<br/>
-![AWS_structure](https://user-images.githubusercontent.com/52940447/94350914-58488300-0021-11eb-8c84-77b24bbb71e6.jpg) <br/>
+Environment:<br/>
+![flow_chart](https://user-images.githubusercontent.com/52940447/94373938-c4d18980-00d6-11eb-903e-120722b5f0d8.jpg)<br/>
 
 Environment:<br/>
 - Ruby 2.6.3<br/>
