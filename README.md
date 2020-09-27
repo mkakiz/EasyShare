@@ -18,10 +18,10 @@ Functions:<br/>
 - Listing of the post by the users or liked by themselves<br/>
 - Post search<br/>
 
-Procedure:
-1. Post things the user can share (text, picture, location)
-2. Comment to the user want to use and decide how the users exchange.
-3. Exchange items
+Procedure:<br/>
+1. Post things the user can share (text, picture, location)<br/>
+2. Comment to the user want to use and decide how the users exchange.<br/>
+3. Exchange items<br/>
 The more the user post items, the more they will have chance to use things.<br/>
 Also, the users have chances to know other users that have same hobby.
 

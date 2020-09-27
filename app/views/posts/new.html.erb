@@ -1,6 +1,6 @@
 <div class="main posts-new">
   <div class="container">
-    <h1 class="form-heading">Post</h1>
+    <h1 class="form-heading">New post</h1>
 
     <%= form_tag("/posts/create", {multipart: true}) do %>
       <div class="form">
@@ -18,7 +18,7 @@
             <p><div align="right">{{ postText.length }}/<%= @content_max_length %></div></p>
           </div>
           </br>
-          <p>画像</p>
+          <p>Picture</p>
           <input name="image" type="file">
           <br/>
           <p>Address (to post or meet)</p>
