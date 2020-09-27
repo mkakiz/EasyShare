@@ -38,6 +38,7 @@ AWS service structure:<br/>
 Environment:<br/>
 - Ruby 2.6.3<br/>
 - Rails 5.2.4、RSpec<br/>
+- Vue.js<br/>
 - MySQL2<br/>
 - AWS（EC2、RDS for MySQL、Route53、CloudWatch）<br/>
 - Nginx、Unicorn<br/>
